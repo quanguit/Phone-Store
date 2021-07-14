@@ -1,0 +1,21 @@
+.title-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	.title {
+		font-size: 28px;
+	}
+
+	.search-bar {
+		width: 250px;
+		margin-top: 20px;
+	}
+}
+
+.shop {
+	display: flex;
+	position: absolute;
+	flex-flow: wrap;
+	flex-direction: row;
+}
