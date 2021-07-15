@@ -6,13 +6,12 @@ import StripeCheckoutButton from '../../components/stripe-button/stripe-button';
 
 const CheckoutPage = () => {
 	const cartItems = useSelector((state) => state.cart.cartItems);
+	const currentUser = useSelector((state) => state.user.currentUser);
 	const [totalPrice, setTotalPrice] = useState(0);
 
 	useEffect(() => {
 		let price = 0;
-		cartItems.map((cartItem) => {
-			price += cartItem.price * cartItem.quantity;
-		});
+		cartItems.map((cartItem) => (price += cartItem.price * cartItem.quantity));
 		setTotalPrice(price);
 	}, [cartItems]);
 
@@ -39,12 +38,19 @@ const CheckoutPage = () => {
 				<CheckoutItem key={cartItem.id} cartItem={cartItem} />
 			))}
 			<div className="total">TOTAL: ${totalPrice}</div>
+			{totalPrice ? (
+				<div className="stripe">
+					<StripeCheckoutButton
+						totalPrice={totalPrice}
+						currentUser={currentUser}
+					/>
+				</div>
+			) : null}
 			<div className="test-warning">
 				*Please use the following test credit card for payments*
 				<br />
 				4242 4242 4242 4242 - Exp: 01/20 - CVV: 123
 			</div>
-			<StripeCheckoutButton totalPrice={totalPrice} />
 		</div>
 	);
 };

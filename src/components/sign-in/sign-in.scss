@@ -7,8 +7,15 @@
 		margin: 10px 0;
 	}
 
+	.forgot-email {
+		text-decoration: underline;
+		cursor: pointer;
+		font-size: 15px;
+	}
+
 	.buttons {
 		display: flex;
 		justify-content: space-between;
+		margin-top: 20px;
 	}
 }

@@ -1,0 +1,17 @@
+.pay-button {
+	background-color: #185adb;
+	height: 40px;
+	width: 90px;
+	border-radius: 5px;
+	color: white;
+	cursor: pointer;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	border: none;
+
+	&:hover {
+		background-color: white;
+		color: #185adb;
+		border: 1px solid #185adb;
+	}
+}

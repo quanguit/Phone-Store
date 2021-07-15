@@ -13,6 +13,7 @@ const CustomButton = ({
 		} custom-button`}
 		{...otherProps}
 	>
+		{/* children ở đây là chữ của nút */}
 		{children}
 	</button>
 );

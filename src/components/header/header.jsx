@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom';
 import CartIcon from '../cart-icon/cart-icon';
 import CartDropdown from '../cart-dropdown/cart-dropdown';
 import { useSelector } from 'react-redux';
+import { auth } from '../firebase/firebase';
 
 const Header = () => {
 	const hidden = useSelector((state) => state.cart.hidden);
+	const currentUser = useSelector((state) => state.user.currentUser);
 
 	return (
 		<div className="header">
@@ -24,9 +26,15 @@ const Header = () => {
 				<Link className="option" to="/contact">
 					CONTACT
 				</Link>
-				<div className="option" to="/signin">
-					SIGN IN
-				</div>
+				{currentUser ? (
+					<div className="option" to="/" onClick={() => auth.signOut()}>
+						SIGN OUT
+					</div>
+				) : (
+					<Link className="option" to="/signin">
+						SIGN IN
+					</Link>
+				)}
 				<CartIcon />
 			</div>
 			{hidden ? <CartDropdown /> : ''}

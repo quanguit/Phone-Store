@@ -1,7 +1,7 @@
 import React from 'react';
 import './cart-dropdown.scss';
 import CustomButton from '../custom-button/custom-button';
-import { toggleCartHidden } from '../../redux/cart/cart.action';
+import { toggleCartHidden } from '../../redux/cart/cart.actions';
 import { useHistory, withRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import CartItems from '../cart-item/cart-item';

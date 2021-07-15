@@ -30,7 +30,7 @@ const ShopPage = () => {
 			<div className="title-container">
 				<h1 className="title">ALL COLLECTIONS</h1>
 				<SearchField
-					placeholder="Search..."
+					placeholder="Type to search..."
 					onChange={onChangeText}
 					classNames="search-bar"
 				/>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './cart-icon.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { ReactComponent as ShoppingIcon } from '../../assets/shopping-bag.svg';
-import { toggleCartHidden } from '../../redux/cart/cart.action';
+import { toggleCartHidden } from '../../redux/cart/cart.actions';
 
 const CartIcon = () => {
 	const dispatch = useDispatch();

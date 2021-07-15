@@ -1,30 +1,31 @@
 import React, { useState } from 'react';
-import './sign-up.styles.scss';
-// import FormInput from "../form-input/form-input.component";
-import CustomButton from '../custom-button/custom-button.component';
+import './sign-up.scss';
+import FormInput from '../form-input/form-input';
+import CustomButton from '../custom-button/custom-button';
+import { useDispatch } from 'react-redux';
+import { signUpWithEmail } from '../../redux/user/user.actions';
 
-const SignUp = ({ signUpStart }) => {
-	const [userCredentials, setUserCredentials] = useState({
+const SignUp = () => {
+	const [user, setUser] = useState({
 		displayName: '',
 		email: '',
 		password: '',
 		confirmPassword: '',
 	});
+	const dispatch = useDispatch();
 
-	const { displayName, email, password, confirmPassword } = userCredentials;
+	const { displayName, email, password, confirmPassword } = user;
 
-	const handleSubmit = async (event) => {
+	const handleSubmit = (event) => {
 		event.preventDefault();
-
-		if (password !== confirmPassword) {
-			alert("Password don't match");
-			return;
-		}
+		dispatch(
+			signUpWithEmail({ email, password, displayName, confirmPassword })
+		);
 	};
 
 	const handleChange = (event) => {
 		const { value, name } = event.target;
-		setUserCredentials({ ...userCredentials, [name]: value });
+		setUser({ ...user, [name]: value });
 	};
 
 	return (
@@ -33,12 +34,12 @@ const SignUp = ({ signUpStart }) => {
 			<span>Sign up with your email and password</span>
 
 			<form onSubmit={handleSubmit}>
-				{/* <FormInput
+				<FormInput
 					name="displayName"
 					type="text"
 					value={displayName}
 					handleChange={handleChange}
-					label="Display Name"
+					label="User Name"
 					required
 				/>
 				<FormInput
@@ -64,8 +65,7 @@ const SignUp = ({ signUpStart }) => {
 					handleChange={handleChange}
 					label="Confirm Password"
 					required
-				/> */}
-
+				/>
 				<CustomButton type="submit">Sign up</CustomButton>
 			</form>
 		</div>
