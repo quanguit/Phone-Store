@@ -7,9 +7,20 @@ const CollectionPreview = ({ name, items, match }) => {
 	const history = useHistory();
 	// console.log(history);
 	// console.log(match);
+
+	const scrollToTop = () => {
+		window.scrollTo(0, 0);
+	};
+
 	return (
 		<div className="collection-preview">
-			<h1 className="title" onClick={() => history.push(`/${name}`)}>
+			<h1
+				className="title"
+				onClick={() => {
+					scrollToTop();
+					history.push(`/${name}`, { items });
+				}}
+			>
 				{name.toUpperCase()}
 			</h1>
 			<div className="preview">
