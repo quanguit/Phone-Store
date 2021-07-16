@@ -1,16 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './shoppage.scss';
 import { SHOP_DATA } from '../shop.data';
 import SearchField from 'react-search-field';
+import { firestore } from '../../components/firebase/firebase';
 import CollectionItem from '../../components/collection-item/collection-item';
 
 const ShopPage = () => {
-	const [category, setCategory] = useState(SHOP_DATA);
-	const [searchQuery, setSearchQuery] = useState('');
 	const [items, setItems] = useState([]);
+	const [collections, setCollections] = useState([]);
+	const [searchQuery, setSearchQuery] = useState('');
+
+	useEffect(() => {
+		const fetchCollections = async () => {
+			const fetchCol = await firestore.collection('shopdata').get();
+			const col = fetchCol.docs.map((a) => a.data());
+			setCollections(col);
+		};
+		fetchCollections();
+	}, []);
 
 	const transform = () => {
-		category.map((col) => col.items.map((item) => items.push(item)));
+		collections.map((col) => col.items.map((item) => items.push(item)));
 	};
 
 	if (items.length === 0) {

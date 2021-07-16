@@ -13,6 +13,7 @@ import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 
 const loggerMiddleware = createLogger();
+
 const store = createStore(
 	rootReducer,
 	applyMiddleware(thunkMiddleware, loggerMiddleware)

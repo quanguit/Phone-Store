@@ -3,14 +3,14 @@ import './collection-preview.scss';
 import CollectionItem from '../collection-item/collection-item';
 import { useHistory, withRouter } from 'react-router-dom';
 
-const CollectionPreview = ({ title, items, match }) => {
+const CollectionPreview = ({ name, items, match }) => {
 	const history = useHistory();
 	// console.log(history);
 	// console.log(match);
 	return (
 		<div className="collection-preview">
-			<h1 className="title" onClick={() => history.push(`/${title}`)}>
-				{title.toUpperCase()}
+			<h1 className="title" onClick={() => history.push(`/${name}`)}>
+				{name.toUpperCase()}
 			</h1>
 			<div className="preview">
 				{items

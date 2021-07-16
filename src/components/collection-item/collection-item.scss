@@ -5,7 +5,7 @@
 	height: 350px;
 	align-items: center;
 	position: relative;
-	padding: 5px;
+	padding: 20px;
 
 	// change margin bottom if Collection Page
 	&.flag {
@@ -68,13 +68,13 @@
 		font-size: 18px;
 
 		.name {
-			width: 90%;
+			width: 85%;
 			margin-bottom: 15px;
 		}
 
 		.price {
 			text-align: right;
-			width: 10%;
+			width: 15%;
 		}
 	}
 }

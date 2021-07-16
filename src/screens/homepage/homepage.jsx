@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './homepage.scss';
-import { SHOP_DATA } from '../shop.data.js';
 import CollectionPreview from '../../components/collection-preview/collection-preview';
+import { firestore } from '../../components/firebase/firebase';
 
 const HomePage = () => {
-	const [collections, setCollections] = useState(SHOP_DATA);
+	const [collections, setCollections] = useState([]);
+
+	useEffect(() => {
+		const fetchCollections = async () => {
+			const fetchCol = await firestore.collection('shopdata').get();
+			const col = fetchCol.docs.map((a) => a.data());
+			setCollections(col);
+		};
+		fetchCollections();
+	}, []);
 
 	return (
 		<div className="container">
