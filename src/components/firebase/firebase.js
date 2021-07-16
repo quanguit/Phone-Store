@@ -3,13 +3,13 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 var config = {
-	apiKey: 'AIzaSyBsbTQnlM3CYQQUUa__sE-ls-EaDzliWiw',
-	authDomain: 'technologies-f51da.firebaseapp.com',
-	projectId: 'technologies-f51da',
-	storageBucket: 'technologies-f51da.appspot.com',
-	messagingSenderId: '521874360721',
-	appId: '1:521874360721:web:3f04025e93bdb789e83230',
-	measurementId: 'G-W7KRSSPLNC',
+	apiKey: 'AIzaSyDk8DIpG5zCCgt9AfmatFl550e0bSRVp0Q',
+	authDomain: 'technology-de572.firebaseapp.com',
+	projectId: 'technology-de572',
+	storageBucket: 'technology-de572.appspot.com',
+	messagingSenderId: '1030139484926',
+	appId: '1:1030139484926:web:6f3b1f6e6317d60d2ce3af',
+	measurementId: 'G-Q3BRYEFNL1',
 };
 
 export const generateUserDocument = async (user, additionalData) => {

@@ -4,7 +4,7 @@ import CustomButton from '../custom-button/custom-button';
 import { toggleCartHidden } from '../../redux/cart/cart.actions';
 import { useHistory, withRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import CartItems from '../cart-item/cart-item';
+import CartItem from '../cart-item/cart-item';
 
 const CartDropdown = () => {
 	const history = useHistory();
@@ -14,9 +14,9 @@ const CartDropdown = () => {
 	return (
 		<div className="cart-dropdown">
 			<div className="cart-items">
-				{cartItems.length ? (
+				{cartItems.length !== 0 ? (
 					cartItems.map((cartItem) => (
-						<CartItems key={cartItem.id} item={cartItem} />
+						<CartItem key={cartItem.id} item={cartItem} />
 					))
 				) : (
 					<span className="empty-message">Your cart is empty</span>
