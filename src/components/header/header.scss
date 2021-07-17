@@ -3,40 +3,59 @@
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
+	z-index: 10;
 	margin-bottom: 25px;
 
-	@media screen and (max-width: 800px) {
+	@media screen and (max-width: 768px) {
 		height: 70px;
 		padding: 10px;
 		margin-bottom: 20px;
+		width: 100%;
+	}
+
+	.bar {
+		display: none;
+
+		@media screen and (max-width: 768px) {
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			transform: translate(-300%, 100%);
+			font-size: 1.8rem;
+			cursor: pointer;
+		}
 	}
 
 	.logo-container {
 		height: 100%;
 		width: 70px;
-		padding-top: 15px;
+		padding-top: 10px;
 
-		@media screen and (max-width: 800px) {
+		@media screen and (max-width: 768px) {
 			width: 50px;
 			padding: 0;
 		}
 	}
 
 	.options {
+		display: flex;
 		width: 50%;
 		height: 100%;
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
-		margin-top: 15px;
 
-		@media screen and (max-width: 800px) {
-			width: 80%;
-			padding: 0;
+		@media screen and (max-width: 768px) {
+			display: none;
 		}
 
 		.option {
+			display: flex;
+			align-items: center;
+			text-decoration: none;
 			padding: 10px 15px;
+			height: 100%;
 			cursor: pointer;
 		}
 	}

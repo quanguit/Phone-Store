@@ -3,4 +3,12 @@
 	position: absolute;
 	flex-flow: wrap;
 	flex-direction: row;
+
+	@media screen and (max-width: 768px) {
+		display: flex;
+		flex-direction: column;
+		padding-left: 40px;
+		align-items: center;
+		justify-content: center;
+	}
 }

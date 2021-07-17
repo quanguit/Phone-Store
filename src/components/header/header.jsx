@@ -6,6 +6,7 @@ import CartIcon from '../cart-icon/cart-icon';
 import CartDropdown from '../cart-dropdown/cart-dropdown';
 import { useSelector } from 'react-redux';
 import { auth } from '../firebase/firebase';
+import { FaBars } from 'react-icons/fa';
 
 const Header = () => {
 	const hidden = useSelector((state) => state.cart.hidden);
@@ -16,6 +17,9 @@ const Header = () => {
 			<Link className="logo-container" to="/">
 				<Logo className="logo" />
 			</Link>
+			<div className="bar">
+				<FaBars size={30} onClick={() => {}} />
+			</div>
 			<div className="options">
 				<Link className="option" to="/">
 					SHOP

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import './collectionpage.scss';
-import { useLocation, withRouter } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import CollectionItem from '../../components/collection-item/collection-item';
 
 const CollectionPage = ({ match }) => {
+	// const path = match.params.collectionName;
 	const location = useLocation();
 	const [items, setItems] = useState(location.state.items);
 
@@ -15,4 +16,4 @@ const CollectionPage = ({ match }) => {
 		</div>
 	);
 };
-export default withRouter(CollectionPage);
+export default CollectionPage;
