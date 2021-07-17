@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './header.scss';
 import { ReactComponent as Logo } from '../../assets/apple.svg';
 import { Link } from 'react-router-dom';
@@ -7,10 +7,12 @@ import CartDropdown from '../cart-dropdown/cart-dropdown';
 import { useSelector } from 'react-redux';
 import { auth } from '../firebase/firebase';
 import { FaBars } from 'react-icons/fa';
+import ResponsiveBar from '../responsive-bar/responsive-bar';
 
 const Header = () => {
 	const hidden = useSelector((state) => state.cart.hidden);
 	const currentUser = useSelector((state) => state.user.currentUser);
+	const [showBar, setShowBar] = useState(false);
 
 	return (
 		<div className="header">
@@ -18,8 +20,9 @@ const Header = () => {
 				<Logo className="logo" />
 			</Link>
 			<div className="bar">
-				<FaBars size={30} onClick={() => {}} />
+				<FaBars size={30} onClick={() => setShowBar(!showBar)} />
 			</div>
+			{showBar ? <ResponsiveBar currentUser={currentUser} /> : ''}
 			<div className="options">
 				<Link className="option" to="/">
 					SHOP

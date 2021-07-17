@@ -5,10 +5,11 @@
 	flex-direction: row;
 
 	@media screen and (max-width: 768px) {
-		display: flex;
+		width: 60%;
 		flex-direction: column;
-		padding-left: 40px;
 		align-items: center;
 		justify-content: center;
+		flex-flow: wrap;
+		flex-direction: row;
 	}
 }
